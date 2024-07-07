@@ -1,13 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://cqb8quuul5c1r"]
+[gd_scene load_steps=6 format=3 uid="uid://dn8lktddy1rvp"]
 
-[ext_resource type="Texture2D" uid="uid://dkj3f1lk3r7jh" path="res://sprites/player_sheet.png" id="1_wo8b6"]
+[ext_resource type="Texture2D" uid="uid://dkj3f1lk3r7jh" path="res://sprites/player_sheet.png" id="1_24208"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5jld7"]
-atlas = ExtResource("1_wo8b6")
+atlas = ExtResource("1_24208")
 region = Rect2(0, 0, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xnwgq"]
-atlas = ExtResource("1_wo8b6")
+atlas = ExtResource("1_24208")
 region = Rect2(8, 0, 8, 8)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ba2uf"]
@@ -27,12 +27,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6qao7"]
 size = Vector2(4, 8)
 
-[node name="TestLevel" type="Node2D"]
+[node name="Player" type="CharacterBody2D"]
 
-[node name="Player" type="CharacterBody2D" parent="."]
-position = Vector2(-100, 0)
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ba2uf")
 animation = &"idle"
@@ -40,9 +37,6 @@ autoplay = "idle"
 frame = 1
 frame_progress = 0.00199924
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 shape = SubResource("RectangleShape2D_6qao7")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(5, 5)
