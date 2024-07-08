@@ -1,27 +1,67 @@
-[gd_scene load_steps=4 format=3 uid="uid://cqb8quuul5c1r"]
+[gd_scene load_steps=5 format=3 uid="uid://cqb8quuul5c1r"]
 
 [ext_resource type="PackedScene" uid="uid://dn8lktddy1rvp" path="res://scenes/player.tscn" id="1_ec3eb"]
+[ext_resource type="Texture2D" uid="uid://bboh3aw85aidq" path="res://sprites/tileset_01.png" id="2_m61ex"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oqrcl"]
-size = Vector2(230.5, 27)
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nqpj0"]
+texture = ExtResource("2_m61ex")
+texture_region_size = Vector2i(8, 8)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 4, -4, 4, 4, -4, 4)
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0 = 0
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+5:0/0 = 0
+5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:0/0/physics_layer_0/angular_velocity = 0.0
+6:0/0 = 0
+6:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 0, -4, 0.0625, 4, -4, 4)
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-0.1875, -4, 4, -4, 4, 4, -0.1875, 4)
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-4, -4, 0, -4, 0.0625, 4, -4, 4)
+2:2/0 = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-0.1875, -4, 4, -4, 4, 4, -0.1875, 4)
 
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ptqrh"]
+[sub_resource type="TileSet" id="TileSet_ybbqx"]
+tile_size = Vector2i(8, 8)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_nqpj0")
 
 [node name="TestLevel" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-0.25, 21)
-shape = SubResource("RectangleShape2D_oqrcl")
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-position = Vector2(-0.375008, 20.625)
-scale = Vector2(230.75, 26.75)
-texture = SubResource("PlaceholderTexture2D_ptqrh")
-
 [node name="Player" parent="." instance=ExtResource("1_ec3eb")]
 position = Vector2(-107, 0)
+
+[node name="TileMap" type="TileMap" parent="."]
+texture_filter = 1
+tile_set = SubResource("TileSet_ybbqx")
+format = 2
+layer_0/tile_data = PackedInt32Array(131058, 65536, 0, 131059, 65536, 0, 131060, 65536, 0, 131061, 65536, 0, 131062, 65536, 0, 131063, 65536, 0, 131064, 65536, 0, 131065, 65536, 0, 131066, 65536, 0, 131067, 65536, 0, 131068, 65536, 0, 131069, 65536, 0, 131070, 65536, 0, 65535, 0, 0, 131071, 0, 1, 196607, 0, 2, 0, 65536, 0, 1, 65536, 0, 2, 65536, 0, 3, 65536, 0, 4, 65536, 0, 5, 65536, 0, 6, 65536, 0, 7, 65536, 0, 8, 65536, 0, 9, 65536, 0, 10, 65536, 0, 11, 65536, 0, 12, 65536, 0, 13, 65536, 0, 14, 65536, 0, 196597, 196608, 0, 65537, 262144, 0, 327681, 262144, 0, 262137, 262144, 0, 65543, 393216, 0, 262131, 393216, 0, 131057, 65536, 0)
