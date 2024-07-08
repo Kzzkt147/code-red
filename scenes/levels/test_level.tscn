@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cqb8quuul5c1r"]
+[gd_scene load_steps=4 format=3 uid="uid://cqb8quuul5c1r"]
 
-[ext_resource type="PackedScene" uid="uid://dn8lktddy1rvp" path="res://scripts/player.tscn" id="1_brr1g"]
-[ext_resource type="Script" path="res://scenes/player.gd" id="2_jqml1"]
+[ext_resource type="PackedScene" uid="uid://dn8lktddy1rvp" path="res://scenes/player.tscn" id="1_ec3eb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oqrcl"]
 size = Vector2(230.5, 27)
@@ -9,10 +8,6 @@ size = Vector2(230.5, 27)
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_ptqrh"]
 
 [node name="TestLevel" type="Node2D"]
-
-[node name="Player" parent="." instance=ExtResource("1_brr1g")]
-position = Vector2(-100, 0)
-script = ExtResource("2_jqml1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(5, 5)
@@ -27,3 +22,6 @@ shape = SubResource("RectangleShape2D_oqrcl")
 position = Vector2(-0.375008, 20.625)
 scale = Vector2(230.75, 26.75)
 texture = SubResource("PlaceholderTexture2D_ptqrh")
+
+[node name="Player" parent="." instance=ExtResource("1_ec3eb")]
+position = Vector2(-107, 0)
