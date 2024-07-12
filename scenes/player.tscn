@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dn8lktddy1rvp"]
+[gd_scene load_steps=10 format=3 uid="uid://dn8lktddy1rvp"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_72f24"]
 [ext_resource type="Texture2D" uid="uid://dkj3f1lk3r7jh" path="res://sprites/player_sheet.png" id="1_24208"]
@@ -11,6 +11,18 @@ region = Rect2(0, 0, 8, 8)
 atlas = ExtResource("1_24208")
 region = Rect2(8, 0, 8, 8)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_267vx"]
+atlas = ExtResource("1_24208")
+region = Rect2(0, 16, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2k22m"]
+atlas = ExtResource("1_24208")
+region = Rect2(0, 8, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6fms"]
+atlas = ExtResource("1_24208")
+region = Rect2(8, 8, 8, 8)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_ba2uf"]
 animations = [{
 "frames": [{
@@ -22,6 +34,25 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_267vx")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2k22m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6fms")
+}],
+"loop": true,
+"name": &"walk",
 "speed": 5.0
 }]
 
@@ -36,8 +67,7 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ba2uf")
 animation = &"idle"
 autoplay = "idle"
-frame = 1
-frame_progress = 0.00199924
+frame_progress = 0.0923143
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
