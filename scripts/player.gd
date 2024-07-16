@@ -16,6 +16,7 @@ extends CharacterBody2D
 # Private variables
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var was_on_floor := true
+var jump_count := 0
 
 
 func _physics_process(delta) -> void:
@@ -24,6 +25,7 @@ func _physics_process(delta) -> void:
 		apply_gravity(delta)
 	else:
 		was_on_floor = true
+		jump_count = 0
 	
 	handle_coyote_time()
 	handle_movement()
@@ -49,7 +51,7 @@ func apply_gravity(delta) -> void:
 
 
 func handle_jump() -> void:
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") and jump_count < 1:
 		if is_on_floor() or was_on_floor:
 			jump()
 		else:
@@ -57,6 +59,7 @@ func handle_jump() -> void:
 
 
 func jump() -> void:
+	jump_count += 1
 	animation.play("jump")
 	velocity.y = jump_velocity
 
