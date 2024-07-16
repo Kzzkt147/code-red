@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var jump_velocity := -200.0
 @export var acceleration := 100.0
 @export var friction := 100.0
+@export var jump_buffer_timer := 0.1
 
 @onready var animation := $AnimatedSprite2D
 
@@ -36,12 +37,25 @@ func apply_gravity(delta) -> void:
 	velocity.y += gravity * delta
 
 func handle_jump() -> void:
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		animation.play("jump")
-		velocity.y = jump_velocity
+	if Input.is_action_just_pressed("jump"):
+		if is_on_floor():
+			jump()
+		else:
+			start_jump_buffer()
+
+func jump() -> void:
+	animation.play("jump")
+	velocity.y = jump_velocity
+	
+func on_jump_buffer_timeout() -> void:
+	if is_on_floor():
+		jump()
 
 func handle_direction(direction) -> void:
 	if direction < 0:
 		animation.flip_h = true
 	elif direction > 0:
 		animation.flip_h = false
+
+func start_jump_buffer() -> void:
+	get_tree().create_timer(jump_buffer_timer).timeout.connect(on_jump_buffer_timeout)
