@@ -83,11 +83,12 @@ func handle_direction(direction) -> void:
 func start_jump_buffer() -> void:
 	get_tree().create_timer(jump_buffer_timer).timeout.connect(on_jump_buffer_timeout)
 
+
 func handle_coyote_time() -> void:
 	if not is_on_floor() && was_on_floor:
 		get_tree().create_timer(coyote_time).timeout.connect(on_coyote_timeout)
-	pass
-	
+
+
 func on_coyote_timeout() -> void:
 	was_on_floor = false
 

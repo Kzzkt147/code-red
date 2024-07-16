@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dn8lktddy1rvp" path="res://scenes/player.tscn" id="1_ec3eb"]
 [ext_resource type="Texture2D" uid="uid://bboh3aw85aidq" path="res://sprites/tileset_01.png" id="2_m61ex"]
-[ext_resource type="Shader" path="res://crt.gdshader" id="3_qnp31"]
+[ext_resource type="Shader" path="res://shaders/crt.gdshader" id="3_qnp31"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_82hdu"]
 shader = ExtResource("3_qnp31")
