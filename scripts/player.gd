@@ -6,12 +6,15 @@ extends CharacterBody2D
 @export var jump_velocity := -200.0
 @export var acceleration := 100.0
 @export var friction := 100.0
+
 @export_group("Player Jump Settings")
 @export var jump_buffer_timer := 0.1
 @export var coyote_time := 0.2
 
+
 # Node References
 @onready var animation := $AnimatedSprite2D
+
 
 # Private variables
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -30,6 +33,7 @@ func _physics_process(delta) -> void:
 	handle_coyote_time()
 	handle_movement()
 	handle_jump()
+	handle_platform_drop()
 
 	move_and_slide()
 
@@ -86,3 +90,8 @@ func handle_coyote_time() -> void:
 	
 func on_coyote_timeout() -> void:
 	was_on_floor = false
+
+
+func handle_platform_drop() -> void:
+	if Input.is_action_pressed("down") && is_on_floor():
+		position.y += 1
