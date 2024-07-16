@@ -72,13 +72,16 @@ sources/0 = SubResource("TileSetAtlasSource_nqpj0")
 [node name="TestLevel" type="Node2D"]
 
 [node name="CRT Canvas Effect" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="CRT Image" type="TextureRect" parent="CRT Canvas Effect"]
 material = SubResource("ShaderMaterial_82hdu")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -7.0
+offset_top = 1.0
+offset_right = -7.0
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("CanvasTexture_vc535")
@@ -89,6 +92,7 @@ zoom = Vector2(5, 5)
 
 [node name="Player" parent="." instance=ExtResource("1_ec3eb")]
 position = Vector2(-110, 25)
+coyote_time = 0.1
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
