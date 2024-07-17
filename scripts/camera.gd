@@ -2,7 +2,7 @@ extends Camera2D
 
 @export var target : Node2D
 
-@onready var camera_width : float = ProjectSettings.get_setting("display/window/size/viewport_width") / zoom.x
+@onready var camera_width : int = ProjectSettings.get_setting("display/window/size/viewport_width") / zoom.x
 var next_slide_x_value := 0
 var previous_slide_x_value := 0
 

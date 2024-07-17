@@ -97,6 +97,7 @@ target = NodePath("../Player")
 
 [node name="Player" parent="." instance=ExtResource("1_ec3eb")]
 position = Vector2(6, 100)
+jump_buffer_time = 0.075
 coyote_time = 0.1
 
 [node name="TileMap" type="TileMap" parent="."]
